@@ -9,6 +9,11 @@ from interfaces import user_interface
 
 application = webapp2.WSGIApplication([
                                       # ---------------- Level Interface Routing ----------------
+                                      webapp2.Route('/level/<level_id>/like/<user_id>',
+                                                    handler=level_interface.LevelInterface,
+                                                    handler_method="like_level",
+                                                    methods=['POST']),
+
                                       webapp2.Route('/level/<level_id>/like/',
                                                     handler=level_interface.LevelInterface,
                                                     handler_method="get_total_number_likes",
