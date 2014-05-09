@@ -5,17 +5,17 @@ from models.user_model import UserModel
 __author__ = 'root'
 
 
-def get_total_likes_for_level(level_id):
+def get_level_stats(level_id):
     """
     This method will get the total number of likes for specific level
     @param level_id: integer id of the level we are looking for
-    @return: count of number of likes each level has had
+    @return: count of number of likes and comments each level has had
     """
     level = LevelModel.query(LevelModel.level_id == level_id).get()
     if level is None:
         return 0
     else:
-        return level.likes_count
+        return level.likes_count, level.comments_count
 
 
 def comment_on_level(level_id, user_id, comment_text):

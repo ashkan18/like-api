@@ -14,9 +14,14 @@ application = webapp2.WSGIApplication([
                                                     handler_method="like_level",
                                                     methods=['POST']),
 
-                                      webapp2.Route('/level/<level_id>/like/',
+                                      webapp2.Route('/level/<level_id>/comment/<user_id>',
                                                     handler=level_interface.LevelInterface,
-                                                    handler_method="get_total_number_likes",
+                                                    handler_method="comment_on_level",
+                                                    methods=['POST']),
+
+                                      webapp2.Route('/level/<level_id>/',
+                                                    handler=level_interface.LevelInterface,
+                                                    handler_method="get_level_stats",
                                                     methods=['GET']),
 
                                       webapp2.Route('/level/<level_id>/comment/total',

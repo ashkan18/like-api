@@ -6,6 +6,9 @@ from google.appengine.ext import ndb
 
 
 class LevelModel(ndb.Model):
+    """
+    This class defines a Level
+    """
     level_id = ndb.IntegerProperty(indexed=True)
     name = ndb.StringProperty()
     comments = ndb.StructuredProperty(CommentModel, repeated=True)
