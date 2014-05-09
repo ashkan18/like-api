@@ -1,7 +1,7 @@
 import json
-import webapp2
 from interfaces.base_interface import BaseInterface
 from services import level_service
+from util.json_encoder import LikeAPIJSONEncoder
 
 __author__ = 'root'
 
@@ -56,5 +56,6 @@ class LevelInterface(BaseInterface):
             curl -X GET http://localhost:8080/level/2/comment/
         """
         level = level_service.get_level_by_id(int(level_id))
-        return level.comments
-
+        comments = [{'text': comment.text, 'user_id': comment.user_id, 'date': comment.date}
+                    for comment in level.comments]
+        self.send_response({"comments":  comments})
