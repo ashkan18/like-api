@@ -1,9 +1,10 @@
-import webapp2
+from interfaces.base_interface import BaseInterface
+from services import user_service
 
-__author__ = 'root'
+__author__ = 'Ashkan'
 
 
-class UserInterface(webapp2.RequestHandler):
+class UserInterface(BaseInterface):
 
     def get_user_liked_levels(self, user_id):
         """
@@ -11,9 +12,10 @@ class UserInterface(webapp2.RequestHandler):
         @param user_id: int id of the user we are looking for list of levels liked
 
         sample curl:
-            curl -X GET http://localhost:8080/user/2/like/
+            curl -X GET http://localhost:8080/user/2/like
         """
-        pass
+        user = user_service.get_user_by_id(int(user_id))
+        self.send_response({"liked_levels": user.likes})
 
     def get_user_comments(self, user_id):
         """
@@ -21,7 +23,9 @@ class UserInterface(webapp2.RequestHandler):
         @param user_id: int id of the user we want to get list of comments for
 
         sample curl:
-            curl -X GET http://localhost:8080/user/2/comment/
+            curl -X GET http://localhost:8080/user/2/comment
         """
-        pass
-
+        user = user_service.get_user_by_id(int(user_id))
+        comments = [{'text': comment.text, 'level_id': comment.level_id, 'date': comment.date}
+                    for comment in user.comments]
+        self.send_response({"comments": comments})

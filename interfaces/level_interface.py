@@ -1,9 +1,7 @@
-import json
 from interfaces.base_interface import BaseInterface
 from services import level_service
-from util.json_encoder import LikeAPIJSONEncoder
 
-__author__ = 'root'
+__author__ = 'Ashkan'
 
 
 class LevelInterface(BaseInterface):
@@ -16,7 +14,7 @@ class LevelInterface(BaseInterface):
         @return: json with success showing if like was successful
 
         sample curl:
-            curl -X GET http://localhost:8080/level/2/like/1
+            curl -X POST http://localhost:8080/level/2/like/1
         """
         level_service.like_level(level_id=int(level_id), user_id=int(user_id))
         self.send_response({"success": True})
