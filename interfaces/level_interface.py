@@ -34,7 +34,7 @@ class LevelInterface(BaseInterface):
 
     def get_level_stats(self, level_id):
         """
-        This method will return total number of likes for a level
+        This method will return total number of likes and comments for a level
         @param level_id: int id of the level we are looking to get its stats
 
         sample curl:
