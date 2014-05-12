@@ -25,20 +25,22 @@ Level releated calls:
 
 - Comment on a level:
     This method will add a user comment for a level.</br>
-    Path = POST /level/<level id>/comment/<user id> and in post data comment_text
+    
+    Path = POST /level/{level id}/comment/<user id> and in post data comment_text
     sample curl:
                 curl -X POST http://localhost:8080/level/2/comment/1 --data "comment_text=hello songpop"
 
 - Get level stats:
     This method will return total number of likes and comments for a level</br>
-    Path = GET level/<level id>
+    
+    Path = GET level/{level id}
     sample curl:
         curl -X GET http://localhost:8080/level/2/
 
 - Get comments for a level:
     This method will return list of comments for a level</br>
 
-    path = GET /level/<level id>/comment/
+    path = GET /level/{level id}/comment/
       sample curl:
           curl -X GET http://localhost:8080/level/2/comment/
 
@@ -47,7 +49,7 @@ User related calls:
 - Get levels liked by a user:
     This method will return a list of levels this user has liked</br>
 
-    Path = GET /user/<user id>/like
+    Path = GET /user/{user id}/like
 
     sample curl:
         curl -X GET http://localhost:8080/user/2/like
@@ -55,7 +57,7 @@ User related calls:
 - Get user comments:
     This method will return a list of comments on the levels this user has made </br>
 
-    Path = GET /user/<user id>/comment
+    Path = GET /user/{user id}/comment
 
     sample curl:
         curl -X GET http://localhost:8080/user/2/comment
