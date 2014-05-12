@@ -23,7 +23,7 @@ Level releated calls:
     
     Sample curl:
         
-    curl -X POST http://localhost:8080/level/2/like/1
+        curl -X POST http://localhost:8080/level/2/like/1
 
 - Comment on a level:
     This method will add a user comment for a level.</br>
@@ -32,7 +32,7 @@ Level releated calls:
     
     sample curl:
 
-                curl -X POST http://localhost:8080/level/2/comment/1 --data "comment_text=hello songpop"
+        curl -X POST http://localhost:8080/level/2/comment/1 --data "comment_text=hello songpop"
 
 - Get level stats:
     This method will return total number of likes and comments for a level</br>
